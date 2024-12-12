@@ -4,7 +4,7 @@ using BankAccountLibrary;
 [TestFixture]
 public class BankAccountTests
 {
-    // Создание объекта с корректным начальным балансом.
+    // РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚Р° СЃ РєРѕСЂСЂРµРєС‚РЅС‹Рј РЅР°С‡Р°Р»СЊРЅС‹Рј Р±Р°Р»Р°РЅСЃРѕРј.
     [Test]
     public void CreateAccount_WithValidInitialBalance()
     {
@@ -16,7 +16,7 @@ public class BankAccountTests
         Assert.That(account.GetBalance(), Is.EqualTo(initialBalance));
     }
 
-    // Создание объекта с некорректным начальным балансом.
+     // РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚Р° СЃ РЅРµРєРѕСЂСЂРµРєС‚РЅС‹Рј РЅР°С‡Р°Р»СЊРЅС‹Рј Р±Р°Р»Р°РЅСЃРѕРј.
     [Test]
     public void CreateAccount_WithNegativeInitialBalance()
     {
@@ -26,7 +26,7 @@ public class BankAccountTests
         Assert.Throws<ArgumentException>(() => new BankAccount(accountNumber, initialBalance));
     }
 
-    // Успешное добавление средств.
+    // РЈСЃРїРµС€РЅРѕРµ РґРѕР±Р°РІР»РµРЅРёРµ СЃСЂРµРґСЃС‚РІ.
     [Test]
     public void Deposit_WithPositiveAmount()
     {
@@ -38,7 +38,7 @@ public class BankAccountTests
         Assert.That(account.GetBalance(), Is.EqualTo(150.0f));
     }
 
-    // Попытка пополнить некорректную сумму (0 или отрицательное значение)
+    // РџРѕРїС‹С‚РєР° РїРѕРїРѕР»РЅРёС‚СЊ РЅРµРєРѕСЂСЂРµРєС‚РЅСѓСЋ СЃСѓРјРјСѓ (0 РёР»Рё РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ)
     [Test]
     public void Deposit_WithNonPositiveAmount()
     {
@@ -48,7 +48,7 @@ public class BankAccountTests
         Assert.Throws<ArgumentException>(() => account.Deposit(depositAmount));
     }
 
-    // Успешное снятие, если сумма не превышает баланс.
+     // РЈСЃРїРµС€РЅРѕРµ СЃРЅСЏС‚РёРµ, РµСЃР»Рё СЃСѓРјРјР° РЅРµ РїСЂРµРІС‹С€Р°РµС‚ Р±Р°Р»Р°РЅСЃ.
     [Test]
     public void Withdraw_WithValidAmount()
     {
@@ -60,7 +60,7 @@ public class BankAccountTests
         Assert.That(account.GetBalance(), Is.EqualTo(50.0f));
     }
 
-    // Ошибка при попытке снять сумму больше текущего баланса.
+    // РћС€РёР±РєР° РїСЂРё РїРѕРїС‹С‚РєРµ СЃРЅСЏС‚СЊ СЃСѓРјРјСѓ Р±РѕР»СЊС€Рµ С‚РµРєСѓС‰РµРіРѕ Р±Р°Р»Р°РЅСЃР°.
     [Test]
     public void Withdraw_WithAmountGreaterThanBalance()
     {
@@ -70,7 +70,7 @@ public class BankAccountTests
         Assert.Throws<InvalidOperationException>(() => account.Withdraw(withdrawAmount));
     }
 
-    // Ошибка при попытке снять некорректную сумму (0 или отрицательное значение).
+    // РћС€РёР±РєР° РїСЂРё РїРѕРїС‹С‚РєРµ СЃРЅСЏС‚СЊ РЅРµРєРѕСЂСЂРµРєС‚РЅСѓСЋ СЃСѓРјРјСѓ (0 РёР»Рё РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ).
     [Test]
     public void Withdraw_WithNonPositiveAmount()
     {
@@ -80,7 +80,7 @@ public class BankAccountTests
         Assert.Throws<ArgumentException>(() => account.Withdraw(withdrawAmount));
     }
 
-    // Проверка текущего баланса после операций.
+    // РџСЂРѕРІРµСЂРєР° С‚РµРєСѓС‰РµРіРѕ Р±Р°Р»Р°РЅСЃР° РїРѕСЃР»Рµ РѕРїРµСЂР°С†РёР№.
     [Test]
     public void GetBalance_AfterOperations()
     {
